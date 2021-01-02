@@ -2,9 +2,28 @@
 
 <ul id="product-list-container">
     <li *ngFor="let product of products">
-        {{product.name}} <br />
-        {{product.price}} <br />
-        {{product.description}} <br />
+        <a [title]="'Additional ' + product.name + ' information'">
+            {{product.name}}
+        </a>
+        ({{product.price}}€) <br />
+        <p *ngIf="product.description">
+            {{product.description}} <br />
+            Yup, that's a description alright
+        </p>
+        <br />
+        <button (click)="share()">
+            Click, or don't
+            <!--
+                [Violation] "click" handler took 1607ms
+                yeah, no wonder,
+                a human couldn't possibly dismiss the alert in <50ms
+            -->
+        </button>
+        <br />
+        <app-product-notifications
+            [product]="product"
+            (notify)="onNotify()"
+        ></app-product-notifications>
         <br />
     </li>
 </ul>
