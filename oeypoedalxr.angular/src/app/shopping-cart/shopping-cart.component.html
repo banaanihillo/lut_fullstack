@@ -9,3 +9,21 @@
 <a routerLink="/shipping-calculator">
     Calculate shipping
 </a>
+<br /> <br />
+
+<form
+    [formGroup]="checkoutForm"
+    (ngSubmit)="onSubmit(checkoutForm.value)"
+>
+    <label for="name-input"> Name: </label>
+    <input id="name-input" type="text" formControlName="name" />
+
+    <label for="address-input"> Address: </label>
+    <input id="address-input" type="text" formControlName="address" />
+
+    <br />
+
+    <button type="submit">
+        Check out
+    </button>
+</form>

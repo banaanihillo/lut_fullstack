@@ -2,6 +2,7 @@ import {
     Component,
     OnInit
 } from '@angular/core'
+import {FormBuilder} from "@angular/forms"
 import {ShoppingCartService} from "../shopping-cart.service"
 
 @Component({
@@ -13,15 +14,27 @@ import {ShoppingCartService} from "../shopping-cart.service"
 export class ShoppingCartComponent implements OnInit {
 
     items
+    checkoutForm
 
   constructor(
-      private shoppingCartService: ShoppingCartService
+      private shoppingCartService: ShoppingCartService,
+      private formBuilder: FormBuilder
   ) {
-
+      this.checkoutForm = this.formBuilder.group({
+          name: "",
+          address: ""
+      })
   }
 
   ngOnInit() {
       this.items = this.shoppingCartService.getItems()
+  }
+
+  onSubmit(customerInformation) {
+      console.log(customerInformation)
+      //send that somewhere? or just clear the cart
+      this.items = this.shoppingCartService.clearCart()
+      this.checkoutForm.reset()
   }
 
 }
