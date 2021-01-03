@@ -1,0 +1,7 @@
+<h3> Shipping costs </h3>
+
+<ul>
+    <li *ngFor="let shipping of shippingCosts | async">
+        {{shipping.type}} ({{shipping.price}}€)
+    </li>
+</ul>

@@ -1,14 +1,14 @@
 [
   {
-    "type": "Overnight",
-    "price": 25.99
+    "type": "Express",
+    "price": 30
   },
   {
-    "type": "2-Day",
-    "price": 9.99
+    "type": "Just a bit quicker than Standard",
+    "price": 14
   },
   {
-    "type": "Postal",
-    "price": 2.99
+    "type": "Standard",
+    "price": 6
   }
 ]

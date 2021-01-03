@@ -1,0 +1,11 @@
+<h3> Shopping cart </h3>
+
+<ul>
+    <li *ngFor="let item of items">
+        {{item.name}} ({{item.price}}€)
+    </li>
+</ul>
+
+<a routerLink="/shipping-calculator">
+    Calculate shipping
+</a>

@@ -2,7 +2,10 @@
 
 <ul id="product-list-container">
     <li *ngFor="let product of products">
-        <a [title]="'Additional ' + product.name + ' information'">
+        <a
+            [title]="'Additional ' + product.name + ' information'"
+            [routerLink]="['/products', product.id]"
+        >
             {{product.name}}
         </a>
         ({{product.price}}€) <br />

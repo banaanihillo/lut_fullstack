@@ -1,0 +1,16 @@
+<h2> Additional information </h2>
+
+<section *ngIf="product">
+    {{product.name}} ({{product.price}}€)
+    <!--of course |currency defaults to dollars, because why not-->
+    <br />
+    <p>
+        {{product.description}}
+    </p>
+    <button (click)="addToCart(product)">
+        Add to cart
+    </button>
+</section>
+<section *ngElse>
+    What are you doing here
+</section>
