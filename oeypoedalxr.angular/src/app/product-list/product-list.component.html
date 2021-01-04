@@ -15,12 +15,7 @@
         </p>
         <br />
         <button (click)="share()">
-            Click, or don't
-            <!--
-                [Violation] "click" handler took 1607ms
-                yeah, no wonder,
-                a human couldn't possibly dismiss the alert in <50ms
-            -->
+            Get other things
         </button>
         <br />
         <app-product-notifications
@@ -28,5 +23,12 @@
             (notify)="onNotify()"
         ></app-product-notifications>
         <br />
+    </li>
+</ul>
+
+<!--{{otherThings | json}}-->
+<ul *ngFor="let otherThing of otherThings | async">
+    <li>
+        {{otherThing.name}}
     </li>
 </ul>

@@ -24,6 +24,9 @@ export class ShoppingCartService {
     getShippingPrices() {
         return this.http.get("/assets/shipping.json")
     }
+    getOtherThings() {
+        return this.http.get("http://localhost:3001/backend/items/")
+    }
 
     constructor(
         private http: HTTPClient
