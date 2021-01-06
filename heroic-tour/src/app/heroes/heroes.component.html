@@ -1,0 +1,13 @@
+<section>
+    <h2> List of Heroes </h2>
+
+    <ul class="heroes-container">
+        <li *ngFor="let hero of heroes">
+            {{hero.name}},
+            #{{hero.number}},
+            {{hero.position}}
+            <br />
+            {{hero.description}}
+        </li>
+    </ul>
+</section>

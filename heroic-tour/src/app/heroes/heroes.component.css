@@ -1,0 +1,10 @@
+.heroes-container {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1em 1em;
+}
+
+.heroes-container li {
+    outline: 1px solid darkmagenta;
+    padding: 1em;
+}

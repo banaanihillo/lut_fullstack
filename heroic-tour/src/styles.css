@@ -1,0 +1,46 @@
+/* oh, right, these are imported via angular.json */
+
+/* Responsive Styles */
+/* is there a reason for why that breakpoint is at 767 exactly
+    round numbers look better
+*/
+@media screen and (max-width: 767px) {
+
+    .card-container > *:not(.circle-link),
+    .terminal {
+      width: 100%;
+    }
+
+    .card:not(.highlight-card) {
+      height: 16px;
+      margin: 8px 0;
+    }
+
+    .card.highlight-card span {
+      margin-left: 72px;
+    }
+  }
+
+/* same thing with this breakpoint, why not 580 for instance */
+@media screen and (max-width: 575px) {
+
+}
+
+html {
+    background-color: black;
+    color: deeppink;
+}
+
+a {
+    color: cyan;
+}
+
+a:visited {
+    color: violet;
+}
+
+header {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1em;
+}

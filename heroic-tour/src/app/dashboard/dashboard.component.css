@@ -1,0 +1,11 @@
+.top-heroes-container {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.top-heroes-container li {
+    list-style: none;
+    margin: 1em;
+    outline: 1px solid magenta;
+    padding: 1em;
+}

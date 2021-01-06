@@ -1,0 +1,13 @@
+{
+  "name": "stable-of-heroes",
+  "version": "1.0.0",
+  "description": "Stable full of guys that can throw 98+",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "nodemon": "nodemon index.js"
+  },
+  "author": "banaanihillo",
+  "license": "MIT"
+}

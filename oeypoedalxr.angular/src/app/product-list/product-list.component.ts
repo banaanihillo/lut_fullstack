@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ShoppingCartService} from "../shopping-cart.service"
+
 import { products } from '../products';
 
 @Component({
@@ -9,6 +9,7 @@ import { products } from '../products';
 })
 export class ProductListComponent {
   products = products;
+  /*
   otherThings
 
   constructor(
@@ -16,11 +17,16 @@ export class ProductListComponent {
   ) {
 
   }
+  */
 
   share() {
+      /*
       this.otherThings = this.shoppingCartService.getOtherThings()
       console.log(this.otherThings)
       //oh right, that's just an Observable as well
+      */
+
+      console.log("Shared something with someone")
   }
 
   onNotify() {

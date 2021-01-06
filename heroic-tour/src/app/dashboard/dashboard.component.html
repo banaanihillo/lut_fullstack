@@ -1,0 +1,9 @@
+<section>
+    <h2> Top Heroes </h2>
+
+    <ul class = "top-heroes-container">
+        <li *ngFor="let hero of heroes | slice:0:4">
+            {{hero.name}}
+        </li>
+    </ul>
+</section>
