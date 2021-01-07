@@ -9,7 +9,7 @@ import {heroes} from "../dummyHeroes"
 @Component({
   selector: 'app-heroic-information',
   templateUrl: './heroic-information.component.html',
-  styleUrls: ['./heroic-information.component.scss']
+  styleUrls: ['./heroic-information.component.css']
 })
 export class HeroicInformationComponent implements OnInit {
     hero

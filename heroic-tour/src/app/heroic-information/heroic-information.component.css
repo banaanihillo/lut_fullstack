@@ -1,0 +1,5 @@
+.heroic-information-container {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1em;
+}

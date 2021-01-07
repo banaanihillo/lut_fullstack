@@ -12,7 +12,9 @@ import {heroes} from "../dummyHeroes"
 export class DashboardComponent implements OnInit {
     heroes = heroes
 
-    constructor() { }
+    constructor() {
+
+    }
 
     ngOnInit() {
         heroes.sort((hero1, hero2) => {

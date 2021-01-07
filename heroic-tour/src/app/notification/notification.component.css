@@ -1,0 +1,8 @@
+.notification-container {
+    outline: 1px solid cyan;
+    padding: 1em;
+}
+
+button {
+    background-color: pink;
+}

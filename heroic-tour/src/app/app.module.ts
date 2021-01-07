@@ -13,13 +13,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {
     HeroicInformationComponent
 } from './heroic-information/heroic-information.component';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
-  declarations: [				
+  declarations: [					
     AppComponent,
       HeroesComponent,
       DashboardComponent,
-      HeroicInformationComponent
+      HeroicInformationComponent,
+      NotificationComponent
    ],
   imports: [
     BrowserModule,

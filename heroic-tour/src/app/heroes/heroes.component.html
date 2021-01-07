@@ -3,7 +3,7 @@
 
     <ul class="heroes-container">
         <li *ngFor="let hero of heroes">
-            {{hero.name}},
+            <a [routerLink]="['/heroes', hero.id]"> {{hero.name}}</a>,
             #{{hero.number}},
             {{hero.position}}
             <br />

@@ -1,27 +1,32 @@
 <section>
     <h3> {{hero.name}} </h3>
 
-    ID: {{hero.id}} <br />
+    <div class="heroic-information-container">
+        <span> ID: {{hero.id}} </span>
 
-    <label for="new-name-input">
-        Name:
-    </label>
-    <input
-        [(ngModel)]="hero.name"
-        id="new-name-input"
-        type="text"
-    />
-    <button
-        type="submit"
-        (click)="onSubmit({
-            name: hero.name,
-            id: hero.id
-        })"
-    >
-        Submit
-    </button>
-    <br />
-    <a routerLink="/">
-        Back
-    </a>
+        <span>
+            <label for="new-name-input">
+                Name:
+            </label>
+            <input
+                [(ngModel)]="hero.name"
+                id="new-name-input"
+                type="text"
+            />
+            <button
+                type="submit"
+                (click)="onSubmit({
+                    name: hero.name,
+                    id: hero.id
+                })"
+            >
+                Submit
+            </button>
+        </span>
+
+        <a routerLink="/">
+            Back
+        </a>
+    </div>
+    
 </section>

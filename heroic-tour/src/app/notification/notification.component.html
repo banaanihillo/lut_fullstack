@@ -1,0 +1,11 @@
+<div
+    *ngIf="notificationService.notifications.length > 0"
+    class="notification-container"
+>
+    <li *ngFor="let notification of notificationService.notifications">
+        {{notification}}
+    </li>
+    <button (click)="notificationService.hideNotifications()">
+        Close
+    </button>
+</div>
