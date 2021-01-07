@@ -1,0 +1,27 @@
+<section>
+    <h3> {{hero.name}} </h3>
+
+    ID: {{hero.id}} <br />
+
+    <label for="new-name-input">
+        Name:
+    </label>
+    <input
+        [(ngModel)]="hero.name"
+        id="new-name-input"
+        type="text"
+    />
+    <button
+        type="submit"
+        (click)="onSubmit({
+            name: hero.name,
+            id: hero.id
+        })"
+    >
+        Submit
+    </button>
+    <br />
+    <a routerLink="/">
+        Back
+    </a>
+</section>

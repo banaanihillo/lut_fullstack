@@ -44,3 +44,15 @@ header {
     flex-flow: row nowrap;
     gap: 1em;
 }
+
+input {
+    background-color: violet;
+}
+
+button {
+    background-color: cyan;
+}
+
+button[type="submit"] {
+    margin-left: 1em;
+}
