@@ -5,6 +5,7 @@ import {
 import {ActivatedRoute} from "@angular/router"
 import {FormBuilder} from "@angular/forms"
 import {heroes} from "../dummyHeroes"
+import {NotificationService} from "../notification.service"
 
 @Component({
   selector: 'app-heroic-information',
@@ -17,7 +18,8 @@ export class HeroicInformationComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
-        private formBuilder: FormBuilder
+        private formBuilder: FormBuilder,
+        private notificationService: NotificationService
     ) {
         this.heroForm = this.formBuilder.group({
             name: "",
@@ -32,6 +34,11 @@ export class HeroicInformationComponent implements OnInit {
     ngOnInit() {
         const heroicRouteIdentificator = this.route.snapshot.paramMap
             .get("heroic-id")
+        
+        this.notificationService.showNotification(`
+            Currently viewing ${heroicRouteIdentificator}.
+        `)
+        
         this.hero = heroes.find(hero => {
             return (hero.id === heroicRouteIdentificator)
         })

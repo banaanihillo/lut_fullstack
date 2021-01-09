@@ -1,6 +1,11 @@
 .notification-container {
     outline: 1px solid cyan;
     padding: 1em;
+    margin-top: 1em;
+}
+
+.notification-container li {
+    margin-bottom: 1em;
 }
 
 button {
