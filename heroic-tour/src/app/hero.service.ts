@@ -24,4 +24,15 @@ export class HeroService {
         return emitValuesOf(heroes)
     }
 
+    getHero(id) {
+        this.notificationService.showNotification(`
+            Fetched, or fetching, the hero ${id}.
+        `)
+        return emitValuesOf(
+            heroes.find(hero => {
+                return (hero.id === id)
+            })
+        )
+    }
+
 }

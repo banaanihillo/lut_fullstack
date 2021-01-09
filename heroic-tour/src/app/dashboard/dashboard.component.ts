@@ -2,24 +2,37 @@ import {
     Component,
     OnInit
 } from '@angular/core'
-import {heroes} from "../dummyHeroes"
+import {HeroService} from "../hero.service"
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+    selector: 'app-dashboard',
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
-    heroes = heroes
 
-    constructor() {
+export class DashboardComponent implements OnInit {
+    heroes = []
+
+    constructor(
+        private heroService: HeroService
+    ) {
 
     }
 
     ngOnInit() {
-        heroes.sort((hero1, hero2) => {
-            return (hero2.heroicScore - hero1.heroicScore)
-        })
+        this.getHeroes()
+    }
+
+    getHeroes() {
+        this
+            .heroService
+            .getHeroes()
+                .subscribe(heroes => {
+                    heroes.sort((hero1, hero2) => {
+                        return (hero2.heroicScore - hero1.heroicScore)
+                    })
+                    return (this.heroes = heroes.slice(0, 4))
+                })
     }
 
 }
