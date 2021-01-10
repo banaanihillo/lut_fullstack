@@ -1,0 +1,16 @@
+<section>
+    <label for="heroic-search"> Search by name: </label>
+    <input
+        id="heroic-search"
+        #heroicSearch
+        (input)=searchHeroes(heroicSearch.value)
+    />
+
+    <ul class="search-results">
+        <li *ngFor="let hero of heroes$ | async">
+            <a routerLink="/heroes/{{hero.id}}">
+                {{hero.name}}
+            </a>
+        </li>
+    </ul>
+</section>

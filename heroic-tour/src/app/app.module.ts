@@ -24,15 +24,17 @@ import {
     NotificationComponent
 } from './notification/notification.component'
 import { AddHeroComponent } from './add-hero/add-hero.component';
+import { HeroicSearchComponent } from './heroic-search/heroic-search.component';
 
 @NgModule({
-    declarations: [	
+    declarations: [		
         AppComponent,
         HeroesComponent,
         DashboardComponent,
         HeroicInformationComponent,
         NotificationComponent,
-      AddHeroComponent
+      AddHeroComponent,
+      HeroicSearchComponent
    ],
     imports: [
         BrowserModule,

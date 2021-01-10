@@ -156,4 +156,32 @@ export class HeroService {
                 )
     }
 
+    searchHeroes(searchTerms) {
+        if (!searchTerms) {
+            return emitValuesOf([])
+        } else {
+            return this.httpClient
+                .get(`${this.address}/?name=${searchTerms}`)
+                    .pipe(
+                        tap(results =>
+                            (results)
+                            ? this.notificationService
+                                .showNotification(`
+                                    Results for ${searchTerms}:
+                                `)
+                            : this.notificationService
+                                .showNotification(`
+                                    No results for ${searchTerms}.
+                                `)
+                        ),
+                        catchError(
+                            this.handleError(
+                                `Searching for ${searchTerms}`,
+                                []
+                            )
+                        )
+                    )
+        }
+    }
+
 }
