@@ -11,7 +11,7 @@ import {HeroService} from "../hero.service"
 })
 
 export class DashboardComponent implements OnInit {
-    heroes = []
+    heroes
 
     constructor(
         private heroService: HeroService
@@ -28,10 +28,11 @@ export class DashboardComponent implements OnInit {
             .heroService
             .getHeroes()
                 .subscribe(heroes => {
-                    heroes.sort((hero1, hero2) => {
+                    this.heroes = heroes
+                    this.heroes.sort((hero1, hero2) => {
                         return (hero2.heroicScore - hero1.heroicScore)
                     })
-                    return (this.heroes = heroes.slice(0, 4))
+                    return (this.heroes = this.heroes.slice(0, 4))
                 })
     }
 

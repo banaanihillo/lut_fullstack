@@ -1,4 +1,4 @@
-<section>
+<section *ngIf="hero">
     <h3> {{hero.name}} </h3>
 
     <div class="heroic-information-container">
@@ -29,4 +29,7 @@
         </button>
     </div>
     
+</section>
+<section *ngElse>
+    No heroic information available yet.
 </section>
