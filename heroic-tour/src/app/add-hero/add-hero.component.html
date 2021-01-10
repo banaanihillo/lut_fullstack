@@ -1,0 +1,33 @@
+<form
+    (ngSubmit)="addHero({
+        name: nameInput.value,
+        position: positionInput.value,
+        number: numberInput.value,
+        description: descriptionInput.value,
+        heroicScore: heroicScoreInput.value
+    })"
+>
+    <label for="name-input"> Name: </label>
+    <input id="name-input" #nameInput />
+    <br />
+
+    <label for="position-input"> Primary position: </label>
+    <input id="position-input" #positionInput />
+    <br />
+
+    <label for="number-input"> Number: </label>
+    <input id="number-input" #numberInput type="number" />
+    <br />
+
+    <label for="description-input"> Description: </label>
+    <input id="description-input" #descriptionInput />
+    <br />
+
+    <label for="heroic-score-input"> Heroic score: </label>
+    <input id="heroic-score-input" #heroicScoreInput type="number" />
+    <br />
+
+    <button type="submit">
+        Submit
+    </button>
+</form>

@@ -1,0 +1,21 @@
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    outline: 1px solid blueviolet;
+    gap: 1em;
+    padding: 1em;
+}
+
+form label {
+    grid-column: 1 / 1;
+    justify-self: center;
+}
+
+form input {
+    grid-column: 2 / 2;
+}
+
+form button {
+    grid-column: 1 / 4;
+    justify-self: center;
+}

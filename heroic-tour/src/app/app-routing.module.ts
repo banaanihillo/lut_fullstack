@@ -5,6 +5,7 @@ import {
     HeroicInformationComponent
 } from "./heroic-information/heroic-information.component"
 import {DashboardComponent} from "./dashboard/dashboard.component"
+import {AddHeroComponent} from "./add-hero/add-hero.component"
 
 const routes = [
     {
@@ -14,6 +15,10 @@ const routes = [
     {
         path: "heroes",
         component: HeroesComponent
+    },
+    {
+        path: "add-hero",
+        component: AddHeroComponent
     },
     {
         path: "",

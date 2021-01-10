@@ -106,4 +106,33 @@ export class HeroService {
                 )
     }
 
+    addHero(heroInput) {
+        const heroToSubmit = {
+            ...heroInput,
+            //use an actual unique identifier though
+            //this will do for now,
+            //since it's better to let the server handle the id anyway
+            id: `${Math.floor(Math.random() * 101101101)}banananana`
+        }
+        return this.httpClient
+            .post(
+                this.address,
+                heroToSubmit,
+                this.httpOptions
+            )
+                .pipe(
+                    tap(() => {
+                        this.notificationService.showNotification(`
+                            Successfully added ${heroToSubmit.name}.
+                        `)
+                    }),
+                    catchError(
+                        this.handleError(
+                            `Submission of ${heroToSubmit.name}`,
+                            []
+                        )
+                    )
+                )
+    }
+
 }
