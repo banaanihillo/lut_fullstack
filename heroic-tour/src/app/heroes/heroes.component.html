@@ -8,6 +8,10 @@
             {{hero.position}}
             <br />
             {{hero.description}}
+            <br />
+            <button (click)="deleteHero(hero.id)">
+                Delete
+            </button>
         </li>
     </ul>
 </section>

@@ -135,4 +135,25 @@ export class HeroService {
                 )
     }
 
+    deleteHero(id) {
+        return this.httpClient
+            .delete(
+                `${this.address}/${id}`,
+                this.httpOptions
+            )
+                .pipe(
+                    tap(() => {
+                        this.notificationService.showNotification(`
+                            Successfully removed ${id}.
+                        `)
+                    }),
+                    catchError(
+                        this.handleError(
+                            `Removal of ${id}`,
+                            []
+                        )
+                    )
+                )
+    }
+
 }

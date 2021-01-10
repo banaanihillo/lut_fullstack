@@ -7,4 +7,9 @@
 .heroes-container li {
     outline: 1px solid darkmagenta;
     padding: 1em;
+    line-height: 1.5em;
+}
+
+button {
+    background-color: tomato;
 }
