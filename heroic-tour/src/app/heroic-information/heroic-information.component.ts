@@ -3,7 +3,7 @@ import {
     OnInit
 } from '@angular/core'
 import {ActivatedRoute} from "@angular/router"
-import {FormBuilder} from "@angular/forms"
+
 import {Location} from "@angular/common"
 import {HeroService} from "../hero.service"
 import {NotificationService} from "../notification.service"
@@ -19,19 +19,17 @@ export class HeroicInformationComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
-        private formBuilder: FormBuilder,
+
         private location: Location,
         private notificationService: NotificationService,
         private heroService: HeroService
     ) {
-        this.heroForm = this.formBuilder.group({
-            name: "",
-            id: ""
-        })
+
     }
 
     onSubmit(heroDetails) {
-        console.log(heroDetails)
+        this.heroService.updateHero(heroDetails)
+            .subscribe(() => console.log("doNothing()"))
     }
 
     ngOnInit() {

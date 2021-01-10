@@ -8,7 +8,7 @@ import {
 })
 
 export class InMemoryDataService implements FakeDatabase {
-    //what's a Db? do i really have to use a method name like this
+    //internal method, Db is apparently short for Database
     createDb() {
         const heroes = [
             {
