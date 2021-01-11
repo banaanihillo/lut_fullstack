@@ -45,7 +45,11 @@ a:visited {
 header nav {
     display: flex;
     flex-flow: row nowrap;
-    gap: 1em;
+
+}
+
+header nav a {
+    margin-right: 1em;
 }
 
 input {
