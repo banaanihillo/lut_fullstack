@@ -1,0 +1,1 @@
+DELETE http://localhost:3001/backend/heroes/727272474bananananana7777

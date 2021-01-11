@@ -2,6 +2,8 @@ const express = require("express")
 const app = express()
 const heroicRouter = require("./routers/heroicRouter")
 
+app.use(express.json())
+
 app.get("/ping", (_request, response) => {
     response.json({
         "ping": "Pong"

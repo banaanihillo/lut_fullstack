@@ -1,6 +1,14 @@
 const heroicRouter = require("express").Router()
 
-const notReallyHere = [
+const heroesForDummies = [
+    {
+        "name": "Six",
+        "number": 43
+    },
+    {
+        "name": "Four",
+        "number": 63
+    },
     {
         "id": "727272474bananananana7777",
         "name": "One",
@@ -15,16 +23,7 @@ heroicRouter.get("/ping", (_request, response) => {
 })
 
 heroicRouter.get("/", (_request, response) => {
-    const heroesForDummies = [
-        {
-            "name": "Six",
-            "number": 43
-        },
-        {
-            "name": "Four",
-            "number": 63
-        }
-    ]
+
     response.json(heroesForDummies)
 })
 
@@ -33,12 +32,36 @@ heroicRouter.get("/:id", (request, response) => {
         return (hero.id === request.params.id)
     })
     if (!foundHero) {
-        response.status(400).json({
+        response.status(404).json({
             error: `No heroes with the id ${request.params.id} found.`
         })
     } else {
         response.json(foundHero)
     }
+})
+
+heroicRouter.delete("/:id", (request, response) => {
+    const filteredHeroes = heroesForDummies.filter(hero => {
+        return (hero.id !== request.params.id)
+    })
+    response.json({
+        info: `Successfully deleted ${request.params.id}.`,
+        filteredHeroes
+    })
+})
+
+heroicRouter.post("/", (request, response) => {
+    console.log(request.body)
+    const updatedHeroes = heroesForDummies.concat(request.body)
+    response.json(updatedHeroes)
+})
+
+heroicRouter.patch("/:id", (request, response) => {
+    console.log(request.params.id)
+    console.log(request.body)
+    response.json({
+        info: `Change(s) made to ${request.params.id}.`
+    })
 })
 
 module.exports = heroicRouter

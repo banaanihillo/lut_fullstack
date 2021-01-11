@@ -1,0 +1,8 @@
+POST http://localhost:3001/backend/heroes
+Content-Type: application/json
+
+{
+    "name": "Banana",
+    "number": 6,
+    "id": "aaaaaaaaaaaa777777a7a7a7a7abbbaabbababa"
+}
