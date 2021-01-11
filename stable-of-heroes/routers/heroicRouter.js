@@ -51,6 +51,11 @@ heroicRouter.delete("/:id", (request, response) => {
 })
 
 heroicRouter.post("/", (request, response) => {
+    if (!request.body.name) {
+        return response.status(400).json({
+            error: "The request should include at least a name."
+        })
+    }
     console.log(request.body)
     const updatedHeroes = heroesForDummies.concat(request.body)
     response.json(updatedHeroes)

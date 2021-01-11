@@ -17,7 +17,7 @@ import {NotificationService} from "./notification.service"
 })
 
 export class HeroService {
-    private address = "backend/heroes"
+    private address = "http://localhost:3001/backend/heroes"
     private handleError(operation="operation", result?) {
         return (response) => {
             console.error(`
