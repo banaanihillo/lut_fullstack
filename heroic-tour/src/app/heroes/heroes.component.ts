@@ -33,12 +33,14 @@ export class HeroesComponent implements OnInit {
     }
 
     deleteHero(heroicIdentificator) {
-        this.heroService.deleteHero(heroicIdentificator)
-            .subscribe(
-                this.heroes = this.heroes.filter(hero => {
-                    return (hero.id !== heroicIdentificator)
+        this
+            .heroService
+            .deleteHero(heroicIdentificator)
+                .subscribe(() => {
+                    this.heroes = this.heroes.filter(hero => {
+                        return (hero._id !== heroicIdentificator)
+                    })
                 })
-            )
     }
 
 }

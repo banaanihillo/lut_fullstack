@@ -2,7 +2,9 @@ POST http://localhost:3001/backend/heroes
 Content-Type: application/json
 
 {
-    "name": "Banana",
-    "number": 6,
-    "id": "aaaaaaaaaaaa777777a7a7a7a7abbbaabbababa"
+    "name": "Ryu Hyeon Jin",
+    "position": "P",
+    "number": 99,
+    "description": "The best Korean ballplayer around right now",
+    "heroicScore": 99
 }

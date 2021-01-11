@@ -33,6 +33,9 @@ html {
 
 a {
     color: cyan;
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 1px solid;
 }
 
 a:visited {

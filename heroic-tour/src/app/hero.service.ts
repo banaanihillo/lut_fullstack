@@ -86,9 +86,11 @@ export class HeroService {
 
     updateHero(hero) {
         return this.httpClient
-            .put(
-                `${this.address}/${hero.id}`,
-                hero,
+            .patch(
+                `${this.address}/${hero._id}`,
+                {
+                    name: hero.name
+                },
                 this.httpOptions
             )
                 .pipe(
@@ -99,21 +101,14 @@ export class HeroService {
                     }),
                     catchError(
                         this.handleError(
-                            `Update of ${hero.id}`,
+                            `Update of ${hero._id}`,
                             []
                         )
                     )
                 )
     }
 
-    addHero(heroInput) {
-        const heroToSubmit = {
-            ...heroInput,
-            //use an actual unique identifier though
-            //this will do for now,
-            //since it's better to let the server handle the id anyway
-            id: `${Math.floor(Math.random() * 101101101)}banananana`
-        }
+    addHero(heroToSubmit) {
         return this.httpClient
             .post(
                 this.address,

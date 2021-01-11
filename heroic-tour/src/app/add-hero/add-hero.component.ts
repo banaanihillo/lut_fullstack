@@ -31,7 +31,7 @@ export class AddHeroComponent implements OnInit {
     }
 
     addHero(heroicInput) {
-        console.log(heroicInput)
+        
         this.heroService.addHero(heroicInput)
             .subscribe(addedHero => {
                 this.heroes.push(addedHero)

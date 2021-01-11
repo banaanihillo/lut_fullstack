@@ -3,7 +3,7 @@
 
     <ul class = "top-heroes-container">
         <li *ngFor="let hero of heroes">
-            <a [routerLink]="['/heroes', hero.id]">
+            <a [routerLink]="['/heroes', hero._id]">
                 {{hero.name}}
             </a>
         </li>

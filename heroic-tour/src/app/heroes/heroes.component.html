@@ -3,13 +3,13 @@
 
     <ul class="heroes-container">
         <li *ngFor="let hero of heroes">
-            <a [routerLink]="['/heroes', hero.id]"> {{hero.name}}</a>,
+            <a [routerLink]="['/heroes', hero._id]"> {{hero.name}}</a>,
             #{{hero.number}},
             {{hero.position}}
             <br />
             {{hero.description}}
             <br />
-            <button (click)="deleteHero(hero.id)">
+            <button (click)="deleteHero(hero._id)">
                 Delete
             </button>
         </li>

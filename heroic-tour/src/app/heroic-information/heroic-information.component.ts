@@ -29,7 +29,11 @@ export class HeroicInformationComponent implements OnInit {
 
     onSubmit(heroDetails) {
         this.heroService.updateHero(heroDetails)
-            .subscribe(() => console.log("doNothing()"))
+            .subscribe(() => {
+                this.notificationService.showNotification(`
+                    Successfully updated ${heroDetails.name}.
+                `)
+            })
     }
 
     ngOnInit() {

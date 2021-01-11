@@ -1,36 +1,14 @@
 const heroicRouter = require("express").Router()
+const Hero = require("../models/Hero")
 
-const heroesForDummies = [
-    {
-        "name": "Six",
-        "number": 43
-    },
-    {
-        "name": "Four",
-        "number": 63
-    },
-    {
-        "id": "727272474bananananana7777",
-        "name": "One",
-        "number": 3
-    }
-]
-
-heroicRouter.get("/ping", (_request, response) => {
-    response.json({
-        "kling": "Klingel klang"
-    })
+heroicRouter.get("/", async (_request, response) => {
+    const heroes = await Hero.find({})
+    response.json(heroes)
 })
+//
 
-heroicRouter.get("/", (_request, response) => {
-
-    response.json(heroesForDummies)
-})
-
-heroicRouter.get("/:id", (request, response) => {
-    const foundHero = notReallyHere.find(hero => {
-        return (hero.id === request.params.id)
-    })
+heroicRouter.get("/:id", async (request, response) => {
+    const foundHero = await Hero.findById(request.params.id)
     if (!foundHero) {
         response.status(404).json({
             error: `No heroes with the id ${request.params.id} found.`
@@ -40,33 +18,40 @@ heroicRouter.get("/:id", (request, response) => {
     }
 })
 
-heroicRouter.delete("/:id", (request, response) => {
-    const filteredHeroes = heroesForDummies.filter(hero => {
-        return (hero.id !== request.params.id)
-    })
-    response.json({
+heroicRouter.delete("/:id", async (request, response) => {
+    const removedHero = await Hero.findByIdAndDelete(request.params.id)
+    if (!removedHero) {
+        return response.status(400).json({
+            error: `Looks like ${request.params.id} does not exist.`
+        })
+    }
+    response.status(204).json({
         info: `Successfully deleted ${request.params.id}.`,
-        filteredHeroes
+        removedHero
     })
 })
 
-heroicRouter.post("/", (request, response) => {
+heroicRouter.post("/", async (request, response) => {
     if (!request.body.name) {
         return response.status(400).json({
             error: "The request should include at least a name."
         })
     }
-    console.log(request.body)
-    const updatedHeroes = heroesForDummies.concat(request.body)
-    response.json(updatedHeroes)
+    const newHero = new Hero(request.body)
+
+    const savedHero = await newHero.save()
+    response.json(savedHero)
 })
 
-heroicRouter.patch("/:id", (request, response) => {
-    console.log(request.params.id)
-    console.log(request.body)
-    response.json({
-        info: `Change(s) made to ${request.params.id}.`
-    })
+heroicRouter.patch("/:id", async (request, response) => {
+    const modifiedHero = await Hero.findByIdAndUpdate(
+        request.params.id,
+        request.body,
+        {
+            new: true
+        }
+    )
+    response.json(modifiedHero)
 })
 
 module.exports = heroicRouter
